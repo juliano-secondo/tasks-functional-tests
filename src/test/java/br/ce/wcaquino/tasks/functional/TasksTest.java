@@ -7,13 +7,27 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class TasksTest {
 	
 	public WebDriver acessarAplicacao() {
-		WebDriver driver = new ChromeDriver();
+
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless");
+		WebDriver driver = new ChromeDriver(options);
+				
+//		WebDriver driver = new ChromeDriver();					
+				
 		driver.navigate().to("http://192.168.0.43:8001/tasks");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+//		op = webdriver.ChromeOptions();
+//		op.add_argument("--headless");
+//		driver = webdriver.Chrome(options=op);
+		
+
+				
 		return driver;
 	}
 	
